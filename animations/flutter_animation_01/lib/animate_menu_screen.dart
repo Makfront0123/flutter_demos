@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:blur/blur.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animation_01/bloc_painter.dart';
+import 'package:flutter_animation_01/blob_painter.dart';
 import 'package:flutter_animation_01/particle_model.dart';
 
 class AnimateMenuScreen extends StatefulWidget {
