@@ -30,9 +30,9 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
   ];
 
   late List<Particle> particles;
-  final int particleCount = 10;
-  final double maxWidth = 700;
-  final double maxHeight = 800;
+  final int particleCount = 6;
+  final double maxWidth = 500;
+  final double maxHeight = 700;
   final math.Random rnd = math.Random();
 
   @override
@@ -42,7 +42,7 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
     particles = List.generate(particleCount, (i) {
       return Particle(
         Offset(rnd.nextDouble() * maxWidth, rnd.nextDouble() * maxHeight),
-        Offset((rnd.nextDouble() - 0.5) * 2.5, (rnd.nextDouble() - 0.5) * 2.5),
+        Offset((rnd.nextDouble() - 0.5) * 2.0, (rnd.nextDouble() - 0.5) * 2.0),
         [
           Colors.pinkAccent,
           Colors.cyanAccent,
@@ -50,7 +50,7 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
           Colors.lightBlueAccent,
           Colors.limeAccent,
         ][rnd.nextInt(5)].withOpacity(0.8),
-        60 + rnd.nextDouble() * 100,
+        60 + rnd.nextDouble() * 150,
       );
     });
 
@@ -64,7 +64,7 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
 
     _menuController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 550),
+      duration: const Duration(milliseconds: 400),
     );
     _menuAnimation = CurvedAnimation(
       parent: _menuController,
@@ -80,8 +80,8 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
     for (final p in particles) {
       p.position = p.position + p.velocity;
 
-      final dx = math.sin(t + p.hashCode * 0.0003) * 0.8;
-      final dy = math.cos(t + p.hashCode * 0.0005) * 0.8;
+      final dx = math.sin(t + p.hashCode * 0.0003) * 1.4;
+      final dy = math.cos(t + p.hashCode * 0.0005) * 1.4;
       p.position = p.position.translate(dx, dy);
 
       if (p.position.dx < 0 || p.position.dx > maxWidth) {
@@ -92,8 +92,8 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
       }
 
       p.velocity = Offset(
-        p.velocity.dx + (rnd.nextDouble() - 0.5) * 0.6,
-        p.velocity.dy + (rnd.nextDouble() - 0.5) * 0.6,
+        p.velocity.dx + (rnd.nextDouble() - 0.5) * 0.3,
+        p.velocity.dy + (rnd.nextDouble() - 0.5) * 0.3,
       );
     }
 
@@ -107,8 +107,8 @@ class _AnimateMenuScreenState extends State<AnimateMenuScreen>
     if (isOpen) {
       for (final p in particles) {
         p.velocity = Offset(
-          (rnd.nextDouble() - 0.5) * 6,
-          (rnd.nextDouble() - 0.5) * 6,
+          (rnd.nextDouble() - 0.5) * 10,
+          (rnd.nextDouble() - 0.5) * 10,
         );
       }
       await _menuController.forward();

@@ -15,7 +15,7 @@ class BlobPainter extends CustomPainter {
 
     final paint = Paint()
       ..style = PaintingStyle.fill
-      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 50);
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 90);
 
     final t = DateTime.now().millisecondsSinceEpoch / 1000.0;
 
@@ -30,7 +30,7 @@ class BlobPainter extends CustomPainter {
       paint.color = hsl
           .withHue((hsl.hue + hueShift * 360) % 360)
           .toColor()
-          .withOpacity(0.4);
+          .withOpacity(0.7);
 
       final baseR = blob.size * scale;
       final offsetX = math.sin(t * 0.6 + blob.hashCode * 0.001) * 8;
