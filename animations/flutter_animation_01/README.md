@@ -12,11 +12,11 @@ Combina animaciones, física simple, efectos de blur y deformaciones matemática
 - Simulación física con rebotes y oscilaciones independientes de los frames.
 - Efectos visuales con `CustomPainter`, `BackdropFilter` y blur radial.
 - Arquitectura modular dividida en tres archivos principales:
-lib/
-├── main.dart # Punto de entrada de la aplicación
-├── animate_menu_screen.dart # Widget principal (UI + lógica)
-├── blob_painter.dart # CustomPainter que dibuja las partículas
-└── particle_model.dart # Modelo de la partícula
+
+- main.dart # Punto de entrada de la aplicación
+- animate_menu_screen.dart # Widget principal (UI + lógica)
+- blob_painter.dart # CustomPainter que dibuja las partículas
+- particle_model.dart # Modelo de la partícula
 
 ---
 
@@ -94,7 +94,7 @@ paint.color = hsl
 Explicación:
 -scale → pulsación periódica
 -hueShift → cambia sutilmente el tono..
--maskFilter.blur → bordes suaves para un efecto orgánico difuso.
+-maskFilter.blur → bordes suaves para un efecto mas natural.
 
 
 
@@ -123,12 +123,12 @@ AnimatedContainer(
 
 
 Explicación:
--aumentar el radio del gradiente → sensación de expansión energética.
+-aumentar el radio del gradiente → sensación de expansión.
 -incrementar el blur → enfoque visual en el menú y partículas.
 
 
 ▶️ Cómo ejecutar
-git clone https://github.com/tuusuario/flutter-dynamic-particle-menu.git
-cd flutter-dynamic-particle-menu
+git clone https://github.com/Makfront0123/flutter_demos.git
+cd flutter_demos/animations/flutter_animation_01
 flutter pub get
 flutter run
